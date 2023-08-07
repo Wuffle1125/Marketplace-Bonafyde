@@ -1,0 +1,90 @@
+.newsletter_login {
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  padding: 3px 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  background: #343444;
+}
+
+.login_single_modal {
+  width: 100%;
+  height: 100%;
+  /* background: #0b0b11 !important; */
+  border-radius: 5px;
+  padding: 2% 40% 2% 40%;
+  cursor: pointer;
+}
+
+.single__modal h6 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.single__modal .money {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.input__item input {
+  width: 100%;
+  border: 1px solid rgba(221, 221, 221, 0.274);
+  background: transparent;
+  color: #fff;
+  padding: 9px 25px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.8rem;
+}
+
+.input__item h6 {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.place__bid-btn {
+  padding: 7px 25px;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: auto;
+  background: #5142fc;
+  color: #fff;
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+  .single__modal {
+    width: 300px;
+    height: auto;
+  }
+
+  .single__modal h6 {
+    font-size: 0.9rem;
+  }
+  .single__modal p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .money {
+    font-size: 0.8rem !important;
+  }
+
+  .input__item h6 {
+    font-size: 0.7rem;
+  }
+
+  .input__item input {
+    padding: 5px 20px !important;
+    font-size: 0.7rem;
+  }
+}

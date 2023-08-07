@@ -1,0 +1,49 @@
+.search_icon {
+  position: absolute;
+  color: white;
+  top: 7px;
+  left: 10px;
+}
+
+.users__filter {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search_field {
+  padding: 8px 25px 8px 32px;
+  font-size: 0.9rem;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #343444;
+  border-radius: 5px;
+}
+
+.users_table {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.user_item {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.user_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}

@@ -1,0 +1,48 @@
+.filter_container {}
+.filter_input {
+    padding: 8px 25px;
+    font-size: 0.9rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #343444;
+    border-radius: 5px;
+}
+.filter_select {
+    font-size: 0.9rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #343444;
+    border-radius: 5px;
+    width: 250px;
+    position: absolute;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow: auto;
+    z-index: 2;
+}
+
+.filter_select::placeholder {
+    color: gray;
+}
+
+.country_name {
+    padding: 8px 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.country_name:hover {
+    background:#1967d2;
+}
+
+.arrow_down {
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
