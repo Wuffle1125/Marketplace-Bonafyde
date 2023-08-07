@@ -3,7 +3,11 @@ import "./header.css";
 import { Container } from "reactstrap";
 
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { googleLogout } from "@react-oauth/google";
 
+import { signOutSuccess } from "../../persistence/users/UserReducer";
 import Logo from "../../assets/images/logo192.png";
 import Language from "../../assets/images/language.png";
 
@@ -21,6 +25,9 @@ const NAV__LINKS = [
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const navigate = useNavigate();
+  const { loggedIn, data } = useSelector((state) => state.UserReducer);
+  const dispatch = useDispatch();
   const [route, setRoute] = useState("");
 
   useEffect(() => {
@@ -41,6 +48,12 @@ const Header = () => {
   }, []);
 
   const toggleMenu = () => menuRef.current.classList.toggle("active__menu");
+  console.log(data);
+  const onLogout = () => {
+    googleLogout();
+    dispatch(signOutSuccess());
+    navigate("/login");
+  };
 
   return (
     <header className="header header__shrink" ref={headerRef}>
@@ -50,7 +63,7 @@ const Header = () => {
             <ul className="nav__list">
               <li className="nav__item logo">
                 <NavLink to="/home">
-                  <img src={Logo} className="logo_img" />
+                  <img src={Logo} className="logo_img" alt="logo image" />
                 </NavLink>
               </li>
               <div className="nav__right">
@@ -70,7 +83,7 @@ const Header = () => {
                 <li className="nav__item drop_menu">
                   <NavLink
                     className={(navClass) =>
-                      navClass.isActive && route == "more" ? "active" : ""
+                      navClass.isActive && route === "more" ? "active" : ""
                     }
                   >
                     <div className="drop_label">
@@ -111,29 +124,58 @@ const Header = () => {
                   </ul>
                 </li>
                 <li className="nav__item">
-                  <NavLink
-                    to={"/login"}
-                    onClick={() => setRoute("login")}
-                    className={(navClass) =>
-                      navClass.isActive && route == "login" ? "active" : ""
-                    }
-                  >
-                    Login
-                  </NavLink>
-                  <span style={{ color: "white" }}>/</span>
-                  <NavLink
-                    to={"/signup"}
-                    onClick={() => setRoute("signup")}
-                    className={(navClass) =>
-                      navClass.isActive && route == "signup" ? "active" : ""
-                    }
-                  >
-                    Signup
-                  </NavLink>
+                  {loggedIn ? (
+                    <div className="avatar_container">
+                      <img
+                        src={data.picture}
+                        className={"avatar"}
+                        alt="cover image"
+                      />
+                      <ul className="drop_content">
+                        <li style={{ color: "white" }}>{data.name}</li>
+                        <li>
+                          <div
+                            onClick={onLogout}
+                            style={{ color: "white", cursor: "pointer" }}
+                          >
+                            Logout
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <>
+                      <NavLink
+                        to={"/login"}
+                        onClick={() => setRoute("login")}
+                        className={(navClass) =>
+                          navClass.isActive && route === "login" ? "active" : ""
+                        }
+                      >
+                        Login
+                      </NavLink>
+                      <span style={{ color: "white" }}>/</span>
+                      <NavLink
+                        to={"/signup"}
+                        onClick={() => setRoute("signup")}
+                        className={(navClass) =>
+                          navClass.isActive && route === "signup"
+                            ? "active"
+                            : ""
+                        }
+                      >
+                        Signup
+                      </NavLink>
+                    </>
+                  )}
                 </li>
                 <li className="nav__item">
                   <NavLink to="/multi_language">
-                    <img src={Language} className="multi_language" />
+                    <img
+                      src={Language}
+                      className="multi_language"
+                      alt="Multi Language"
+                    />
                   </NavLink>
                 </li>
               </div>

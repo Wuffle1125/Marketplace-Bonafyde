@@ -49,7 +49,7 @@ const FilterList = ({
           <i className="ri-arrow-down-s-line"></i>
         </span>
       </div>
-      {active && items?.length != 0 && (
+      {active && items?.length !== 0 && (
         <div className="filter_select">
           {items.map((item, index) => (
             <div

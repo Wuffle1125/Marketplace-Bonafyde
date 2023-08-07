@@ -108,6 +108,11 @@
 .drop_menu:hover .drop_content {
   display: block;
 }
+
+.avatar_container:hover .drop_content {
+  display: block;
+}
+
 .drop_content {
   position: absolute;
   background-color: #14141f;
@@ -118,6 +123,13 @@
 }
 .drop_item {
   font-size: 20px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 100px;
 }
 
 @media only screen and (max-width: 768px) {
